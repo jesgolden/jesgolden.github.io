@@ -76,7 +76,6 @@ a:focus-visible, button:focus-visible {
 }
 .wordmark a { color: inherit; }
 .wordmark a:hover { text-decoration: none; }
-.wordmark .surname { font-size: 0.95rem; letter-spacing: 0.12em; text-transform: lowercase; }
 
 .nav ul {
   display: flex;
