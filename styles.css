@@ -490,3 +490,34 @@ figure.portrait-frame figcaption {
     width: 100%;
   }
 }
+
+/* ---------- start here (homepage audience routing) ---------- */
+
+.start-here {
+  margin: 2.4rem 0 3rem;
+  padding: 1.6rem 1.8rem;
+  border: 1px solid var(--rule);
+  background: rgba(225,250,249,0.35);
+}
+.start-here > .eyebrow { display: block; margin-bottom: 0.9rem; }
+.start-here ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.85rem; }
+.start-here li {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.start-here li strong { color: var(--dusk); }
+.start-here li a {
+  margin-left: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cerulean);
+  white-space: nowrap;
+}
+@media (min-width: 700px) {
+  .start-here ul { grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; }
+}
