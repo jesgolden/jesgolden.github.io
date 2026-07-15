@@ -76,6 +76,7 @@ a:focus-visible, button:focus-visible {
 }
 .wordmark a { color: inherit; }
 .wordmark a:hover { text-decoration: none; }
+.wordmark .surname { font-family: var(--sans); font-size: 0.95rem; letter-spacing: 0.12em; text-transform: lowercase; }
 
 .nav ul {
   display: flex;
@@ -433,4 +434,47 @@ figure.portrait-frame figcaption {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--dusk);
+}
+
+/* ---------- lineage pull-quote (single quote, narrower than testimonial grid) ---------- */
+
+.pull-quote {
+  max-width: 44ch;
+  margin: 1.6rem 0;
+  padding-left: 1.3rem;
+  border-left: 2px solid var(--cerulean);
+}
+.pull-quote blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0;
+}
+.pull-quote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-style: normal;
+  color: var(--dusk);
+}
+
+/* ---------- hero with side photo (writing mentorship) ---------- */
+
+.hero-split {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.hero-split .hero-text { flex: 1 1 420px; }
+.hero-split .hero-photo { flex: 0 1 220px; }
+.hero-split .hero-photo img { width: 100%; height: auto; display: block; }
+@media (max-width: 700px) {
+  .hero-split { flex-direction: column-reverse; }
+  .hero-split .hero-photo { max-width: 180px; }
 }
