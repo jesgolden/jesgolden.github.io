@@ -558,3 +558,17 @@ figure.portrait-frame figcaption {
   font-style: italic;
   color: var(--dusk);
 }
+
+/* ---------- worklinks: sans-serif letterspaced links for Work-with-me row ---------- */
+.worklinks a {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ice);
+}
+
+/* ---------- lineage-wide: wider line length for Lineage section body text ---------- */
+.body-col.lineage-wide p,
+.body-col.lineage-wide li { max-width: 74ch; }
+.body-col.lineage-wide .pull-quote { max-width: 55ch; }
