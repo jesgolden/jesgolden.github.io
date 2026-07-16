@@ -441,7 +441,7 @@ figure.portrait-frame figcaption {
 .pull-quote {
   max-width: 44ch;
   margin: 1.6rem 0;
-  padding-left: 0.9rem;
+  padding-left: 1.8rem;
   border-left: 2px solid var(--cerulean);
 }
 .pull-quote blockquote {
