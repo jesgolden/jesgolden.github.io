@@ -19,7 +19,7 @@
   --rule: rgba(55, 64, 89, 0.18);
   --serif: 'Cardo', 'Times New Roman', serif;
   --sans: 'Arimo', 'Helvetica Neue', sans-serif;
-  --measure: 62ch;
+  --measure: 74ch;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -184,7 +184,7 @@ a:focus-visible, button:focus-visible {
   grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
   border-top: 1px solid var(--rule);
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 @media (min-width: 880px) {
   .commented { grid-template-columns: 15rem minmax(0, 1fr); gap: 3.5rem; }
@@ -440,10 +440,8 @@ figure.portrait-frame figcaption {
 /* ---------- lineage pull-quote (single quote, narrower than testimonial grid) ---------- */
 
 .pull-quote {
-  max-width: 44ch;
+  max-width: var(--measure);
   margin: 1.6rem 0;
-  padding-left: 1.3rem;
-  border-left: 2px solid var(--cerulean);
 }
 .pull-quote blockquote {
   font-family: var(--serif);
@@ -469,7 +467,7 @@ figure.portrait-frame figcaption {
 .hero-split {
   display: flex;
   gap: 2.5rem;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
 }
 .hero-split .hero-text { flex: 1 1 420px; }
@@ -556,11 +554,6 @@ figure.portrait-frame figcaption {
   .hero-split.wide .hero-photo { max-width: 320px; }
 }
 
-/* ---------- lineage-wide: body-col modifier for wider lines, used only on Lineage section ---------- */
-
-.body-col.lineage-wide p,
-.body-col.lineage-wide li { max-width: 74ch; }
-.body-col.lineage-wide .pull-quote { max-width: 55ch; }
 .lineage-close {
   font-style: italic;
   color: var(--dusk);
