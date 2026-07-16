@@ -439,7 +439,7 @@ figure.portrait-frame figcaption {
 /* ---------- lineage pull-quote (single quote, narrower than testimonial grid) ---------- */
 
 .pull-quote {
-  max-width: 52ch;
+  max-width: 44ch;
   margin: 1.6rem 0;
   padding-left: 1.3rem;
   border-left: 2px solid var(--cerulean);
@@ -526,11 +526,11 @@ figure.portrait-frame figcaption {
 
 .margin-note.heading-note .eyebrow {
   display: block;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  color: var(--dusk);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cerulean);
   margin-bottom: 0.5rem;
 }
 
