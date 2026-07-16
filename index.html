@@ -137,13 +137,14 @@
     <div class="commented">
       <aside class="margin-note">
         <span class="eyebrow">Stay in touch?</span>
-       
+
       </aside>
       <div class="body-col">
         <h2>Newsletters on contemplative practice, the body, and what's alive right now</h2>
         <!-- Mailchimp integration — uses your site's own styling, submits to Mailchimp backend.
              Note: the Mailchimp URL says jesheppler — that's fine, it works regardless of the account name.
-             You can update it in Mailchimp later under Account > Settings if it bothers you. -->
+             The hidden "redirect" field below sends people to your own thanks.html page after
+             signup instead of Mailchimp's default confirmation page. -->
         <form class="signup-row" action="https://jesheppler.us21.list-manage.com/subscribe/post?u=e505378b7c51a355b4636ad74&amp;id=9735d9837b&amp;f_id=005ba4e6f0" method="post" target="_blank">
           <input type="email" name="EMAIL" placeholder="Your email" aria-label="Email address" required>
           <button class="btn" type="submit">Subscribe</button>
@@ -151,6 +152,7 @@
           <div aria-hidden="true" style="position: absolute; left: -5000px;">
             <input type="text" name="b_e505378b7c51a355b4636ad74_9735d9837b" tabindex="-1" value="">
           </div>
+          <input type="hidden" name="redirect" value="https://jesgolden.com/thanks.html">
         </form>
       </div>
     </div>
