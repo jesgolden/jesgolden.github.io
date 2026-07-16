@@ -439,9 +439,9 @@ figure.portrait-frame figcaption {
 /* ---------- lineage pull-quote (single quote, narrower than testimonial grid) ---------- */
 
 .pull-quote {
-  max-width: 44ch;
+  max-width: 52ch;
   margin: 1.6rem 0;
-  padding-left: 1.8rem;
+  padding-left: 1.3rem;
   border-left: 2px solid var(--cerulean);
 }
 .pull-quote blockquote {
@@ -520,4 +520,34 @@ figure.portrait-frame figcaption {
 }
 @media (min-width: 700px) {
   .start-here ul { grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; }
+}
+
+/* ---------- heading-note: margin eyebrow that functions as a real heading ---------- */
+
+.margin-note.heading-note .eyebrow {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--dusk);
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- signature workshop card: visually separates it from surrounding text ---------- */
+
+.workshop-card {
+  margin: 1.6rem 0;
+  padding: 1.6rem 1.8rem;
+  border: 1px solid var(--rule);
+  background: rgba(225,250,249,0.3);
+}
+.workshop-card h3 { margin-top: 0; }
+
+/* ---------- hero-split wide variant (practice page retreat photo) ---------- */
+
+.hero-split.wide .hero-text { flex: 1 1 380px; }
+.hero-split.wide .hero-photo { flex: 1 1 440px; max-width: 480px; }
+@media (max-width: 700px) {
+  .hero-split.wide .hero-photo { max-width: 320px; }
 }
