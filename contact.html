@@ -35,7 +35,7 @@
 
 <main>
 
-<section class="hero">
+<section class="hero" style="padding-bottom: 1.5rem;">
   <div class="hero-inner">
     <span class="eyebrow">Contact</span>
     <h1>Get in touch.</h1>
@@ -43,36 +43,42 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top: 1.5rem;">
   <div class="section-inner">
-    <!-- EDIT: FORMSPREE — sign up free at formspree.io, create a form, then change action="#" to action="https://formspree.io/f/YOURCODE" and submissions arrive in your email. Nothing else to change. -->
-    <form class="form" action="#" method="post">
+    <form class="form" action="https://formspree.io/f/mwvglegl" method="POST">
       <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <label for="firstname">First name</label>
+        <input type="text" id="firstname" name="First Name" required>
+      </div>
+      <div>
+        <label for="lastname">Last name</label>
+        <input type="text" id="lastname" name="Last Name" required>
       </div>
       <div>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="Email" required>
       </div>
       <div>
-        <label for="topic">This is about</label>
-        <select id="topic" name="topic">
-          <option>Sits and classes</option>
-          <option>Workshop or speaking inquiry</option>
-          <option>Practice mentorship</option>
-          <option>Research or academic</option>
-          <option>Press / other</option>
+        <label for="topic">More about your request</label>
+        <select id="topic" name="More about your request" required>
+          <option value="">Select an option</option>
+          <option>Working with me 1:1</option>
+          <option>Speaking or Workshops</option>
+          <option>Press</option>
+          <option>Something else</option>
         </select>
       </div>
       <div>
         <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="Message" required></textarea>
       </div>
+      <!-- Formspree config: sends submissions to your email; redirects to your own thank-you
+           page instead of Formspree's default confirmation. -->
+      <input type="hidden" name="_next" value="https://jesgolden.com/thanks.html">
+      <input type="text" name="_gotcha" style="display:none">
       <div>
         <button class="btn" type="submit">Send message</button>
       </div>
-      <p class="placeholder">[Wire to Formspree, Netlify Forms, or Basin — one line of config, no backend needed]</p>
     </form>
   </div>
 </section>
@@ -86,6 +92,7 @@
       <ul>
         <li><a href="practice.html">Practice</a></li>
         <li><a href="speaking.html">Speaking</a></li>
+        <li><a href="writing.html">Writing Mentorship</a></li>
         <li><a href="research.html">Research &amp; Writing</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
