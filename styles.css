@@ -101,7 +101,7 @@ a:focus-visible, button:focus-visible {
 /* ---------- hero ---------- */
 
 .hero {
-  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 5vw, 4rem) clamp(3rem, 7vw, 5.5rem);
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 5vw, 4rem) clamp(1.5rem, 4vw, 2.5rem);
   background:
     linear-gradient(180deg, rgba(225,250,249,0.55) 0%, rgba(255,255,255,0) 65%);
 }
@@ -165,7 +165,7 @@ a:focus-visible, button:focus-visible {
 /* ---------- page sections & marginalia signature ---------- */
 
 .section {
-  padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 5vw, 4rem);
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 4rem);
 }
 .section.tint { background: var(--paper-soft); }
 .section.dusk {
@@ -526,12 +526,14 @@ figure.portrait-frame figcaption {
 
 .margin-note.heading-note .eyebrow {
   display: block;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--cerulean);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid var(--cerulean);
 }
 
 /* ---------- signature workshop card: visually separates it from surrounding text ---------- */
@@ -542,6 +544,7 @@ figure.portrait-frame figcaption {
   border: 1px solid var(--rule);
   background: rgba(225,250,249,0.3);
 }
+.workshop-card > * + * { margin-top: 1.1rem; }
 .workshop-card h3 { margin-top: 0; }
 
 /* ---------- hero-split wide variant (practice page retreat photo) ---------- */
