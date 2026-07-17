@@ -45,8 +45,11 @@
 <section class="hero">
   <div class="hero-inner">
     <span class="eyebrow">Philosopher · Jewish meditation teacher · Researcher</span>
-    <h1>We create knowledge with our bodies. <em>I teach the theory and the practice.</em></h1>
-    <p class="lede">I'm Jes Golden, a philosopher, Jewish meditation teacher, and researcher at the <a href="https://www.possibleminds.org/">Center for Possible Minds</a> and Harvard Medical School/Mass General's <a href="https://meditation.mgh.harvard.edu/">Meditation Research Program</a>. My meditation teaching—grounded in Jewish wisdom, philosophy, and contemplative science—teaches contemplative practice as a method for attuning to and interpreting the emotions and wisdom communicated through the body. My research explores embodied experience and contemplative phenomenology in Buddhist and Jewish meditation. I show people who live in their heads how to use the body and intuition to find the still, small voice that leads to greater authenticity, clarity, and discernment.</p>
+<h1>We create knowledge with our bodies. <em>I teach the theory and the practice.</em></h1>
+<div class="lede">
+  <p>Gut feelings carry real information and real bias. Most of us were never taught how to tell the difference.</p>
+  <p>I'm Jes Golden, a philosopher, Jewish meditation teacher, and researcher at the <a href="https://www.possibleminds.org/">Center for Possible Minds</a> and Harvard Medical School/Mass General's <a href="https://meditation.mgh.harvard.edu/">Meditation Research Program</a>. My meditation teaching—grounded in Jewish wisdom, philosophy, and contemplative science—offers a method for attuning to and interpreting the emotions and information communicated through the body. My research explores embodied experience and contemplative phenomenology in Buddhist and Jewish meditation. Through my workshops, keynotes, writing, and teaching, I show people who live in their heads how to use the body to find the still, small voice that leads to greater authenticity, clarity, and discernment.</p>
+</div>
 
     <div class="start-here">
       <span class="eyebrow">Start here</span>
@@ -85,7 +88,7 @@
   <div class="section-inner">
     <span class="eyebrow">The book</span>
     <h2>The Body Inherits: Gut Feelings, Ancestry, and the Craft of Knowledge</h2>
-    <p>I'm writing a book (working title above) about how our most visceral intuitions can reflect our emotions and desires as much as our biases and trauma—and how Jewish contemplative practice teaches us to read them with wisdom.</p>
+    <p>I'm writing a book (working title above) about how our most visceral intuitions can reflect our emotions and desires as much as our biases and trauma—and how Jewish contemplative practice teaches us to read them with discernment.</p>
     <p>I teach a workshop on this called <a href="speaking.html#signature-workshop">What Grows Wild</a>—about accessing and refining what we can know through the body.</p>
     <p class="meta">Agents and editors: <a href="contact.html">get in touch</a>.</p>
   </div>
@@ -111,7 +114,7 @@
             <span class="eyebrow">Monthly · Online</span>
             <h3>Merhav Community Sit</h3>
             <p>An open monthly sit for Jewish meditation starting Fall 2026: wordless melody (<i>niggunim</i>), a teaching grounded in Jewish wisdom, and 30 minutes of silence followed by sharing and Q&amp;A.</p>
-            <span class="meta"><a href=https://forms.gle/i96wyKDt4nHRYdLV6>Interest form</a></span>
+            <span class="meta"><a href="https://forms.gle/i96wyKDt4nHRYdLV6">Interest form</a></span>
           </div>
           <div class="offering">
             <span class="eyebrow">Six sessions · November 2026</span>
@@ -124,7 +127,7 @@
             <span class="eyebrow">Retreat · Five days · Connecticut</span>
             <h3>Returning Anew: Silent Retreat for Younger Adults</h3>
             <p>Shevet's 3rd annual silent Jewish meditation retreat for adults in their 20s &amp; 30s, with Rebecca Schisler, Kohenet Keshira haLev Fife, Yael Shy, and Jes.</p>
-            <span class="meta"><a href=https://www.jewishspirituality.org/courses-programs/returning-anew/>Register</a></span>
+            <span class="meta"><a href="https://www.jewishspirituality.org/courses-programs/returning-anew/">Register</a></span>
           </div>
         </div>
       </div>
@@ -132,7 +135,7 @@
   </div>
 </section>
 
-<section class="section dusk">
+<section class="section dusk" id="newsletter">
   <div class="section-inner">
     <div class="commented">
       <aside class="margin-note">
@@ -141,19 +144,30 @@
       </aside>
       <div class="body-col">
         <h2>Newsletters on contemplative practice, the body, and what's alive right now</h2>
-        <!-- Mailchimp integration — uses your site's own styling, submits to Mailchimp backend.
-             Note: the Mailchimp URL says jesheppler — that's fine, it works regardless of the account name.
-             The hidden "redirect" field below sends people to your own thanks.html page after
-             signup instead of Mailchimp's default confirmation page. -->
-        <form class="signup-row" action="https://jesheppler.us21.list-manage.com/subscribe/post?u=e505378b7c51a355b4636ad74&amp;id=9735d9837b&amp;f_id=005ba4e6f0" method="post">
+        <!-- Mailchimp integration — submits invisibly to a hidden iframe, so the page never
+             navigates anywhere and Mailchimp's own confirmation page never appears. Right after
+             submit, JS swaps the form for a plain thank-you line, right here in the footer.
+             Note: the Mailchimp URL says jesheppler — that's fine, it works regardless of the
+             account name. -->
+        <form class="signup-row" id="newsletter-form" action="https://jesheppler.us21.list-manage.com/subscribe/post?u=e505378b7c51a355b4636ad74&amp;id=9735d9837b&amp;f_id=005ba4e6f0" method="post" target="mc-hidden-frame">
           <input type="email" name="EMAIL" placeholder="Your email" aria-label="Email address" required>
           <button class="btn" type="submit">Subscribe</button>
           <!-- Mailchimp bot detection — do not remove -->
           <div aria-hidden="true" style="position: absolute; left: -5000px;">
             <input type="text" name="b_e505378b7c51a355b4636ad74_9735d9837b" tabindex="-1" value="">
           </div>
-          <input type="hidden" name="redirect" value="https://jesgolden.com/thanks.html">
         </form>
+        <p id="newsletter-thanks" style="display:none;">Thank you for signing up!</p>
+        <iframe name="mc-hidden-frame" style="display:none;" title="hidden"></iframe>
+        <script>
+          document.getElementById('newsletter-form').addEventListener('submit', function() {
+            var form = this;
+            setTimeout(function() {
+              form.style.display = 'none';
+              document.getElementById('newsletter-thanks').style.display = 'block';
+            }, 400);
+          });
+        </script>
       </div>
     </div>
   </div>
