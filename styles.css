@@ -20,7 +20,7 @@
   --serif: 'Cardo', 'Times New Roman', serif;
   --sans: 'Arimo', 'Helvetica Neue', sans-serif;
   --measure: 74ch;
-  --text-label: 0.75rem;   /* eyebrows, nav, footer, figcaptions, citations */
+  --text-label: 0.8rem;   /* eyebrows, nav, footer, figcaptions, citations */
   --text-small: 0.85rem;   /* margin-note body copy, secondary meta */
   --text-cta: 0.95rem;     /* prominent meta links / CTAs like sign-up links */
 }
@@ -184,7 +184,9 @@ a:focus-visible, button:focus-visible {
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--ice);
+  text-decoration: none;
 }
+.worklinks a:hover { text-decoration: underline; }
 
 .section-inner { max-width: 68rem; margin: 0 auto; }
 
