@@ -611,54 +611,55 @@ figure.portrait-frame figcaption {
   font-size: 1.2rem;
   max-width: var(--measure);
 }
-/* ---------- footer signup band (two-column: form + nav) ---------- */
+/* ---------- footer signup band (compact form + vertical nav) ---------- */
 
 .footer-top {
   max-width: 68rem;
-  margin: 0 auto 1.9rem;
-  padding-bottom: 1.9rem;
+  margin: 0 auto 1.6rem;
+  padding-bottom: 1.6rem;
   border-bottom: 1px solid rgba(225, 250, 249, 0.18);
 }
 .footer-signup-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1.3;
   color: #fff;
-  max-width: 42ch;
-  margin-bottom: 1.4rem;
+  max-width: 40ch;
+  margin-bottom: 1.2rem;
 }
 .footer-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 2.5rem 4rem;
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem 4.5rem;
 }
 .signup-form {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  max-width: 30rem;
+  gap: 0.5rem;
+  width: 20rem;
+  max-width: 100%;
 }
 .signup-form input {
   width: 100%;
   font-family: var(--sans);
-  font-size: 1rem;
-  padding: 0.6rem 0.85rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
   border: 1px solid rgba(225, 250, 249, 0.35);
   background: #fff;
   color: var(--ink);
 }
 .signup-form input::placeholder { color: #6f7482; }
 .signup-form input:focus-visible { outline: 2px solid var(--sage); outline-offset: 1px; }
-.signup-names { display: flex; gap: 0.6rem; }
+.signup-names { display: flex; gap: 0.5rem; }
 .signup-names input { flex: 1 1 0; min-width: 0; }
-.signup-form .btn { align-self: flex-start; padding: 0.62rem 1.6rem; }
+.signup-form .btn { align-self: flex-start; padding: 0.5rem 1.3rem; }
 .signup-thanks {
   font-family: var(--sans);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--ice);
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
 }
 .btn.btn-sage { background: var(--sage); color: var(--dusk); }
 .btn.btn-sage:hover { background: #aecdb3; color: var(--dusk); }
@@ -666,7 +667,7 @@ figure.portrait-frame figcaption {
 .footer .footer-nav ul {
   list-style: none;
   display: grid;
-  gap: 0.7rem;
+  gap: 0.6rem;
 }
 .footer .footer-nav a {
   font-family: var(--sans);
@@ -681,6 +682,5 @@ figure.portrait-frame figcaption {
 .footer .footer-nav a:hover { color: var(--sage); text-decoration: none; }
 
 @media (max-width: 640px) {
-  .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
-  .signup-form { max-width: none; }
+  .signup-form { width: 100%; }
 }
