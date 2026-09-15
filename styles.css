@@ -615,11 +615,11 @@ figure.portrait-frame figcaption {
 
 .footer-signup {
   border-bottom: 1px solid rgba(225, 250, 249, 0.18);
-  padding-bottom: 1.9rem;
-  margin-bottom: 1.9rem;
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 .footer-signup-inner {
-  max-width: 40rem;
+  max-width: 54rem;
   margin: 0 auto;
   text-align: center;
 }
@@ -634,31 +634,34 @@ figure.portrait-frame figcaption {
 }
 .signup-fields {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.6rem;
-  margin-bottom: 0.6rem;
+  justify-content: center;
 }
 .signup-fields input {
-  flex: 1 1 0;
+  flex: 1 1 150px;
   min-width: 0;
   font-family: var(--sans);
-  font-size: 0.95rem;
-  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  padding: 0.6rem 0.85rem;
   border: 1px solid rgba(225, 250, 249, 0.35);
   background: #fff;
   color: var(--ink);
 }
+.signup-fields input[type="email"] { flex: 1.6 1 200px; }
 .signup-fields input::placeholder { color: #6f7482; }
 .signup-fields input:focus-visible { outline: 2px solid var(--sage); outline-offset: 1px; }
-.signup-fields .btn { flex: 0 0 auto; }
+.signup-fields .btn { flex: 0 0 auto; padding: 0.62rem 1.4rem; }
 .signup-thanks {
   font-family: var(--sans);
   font-size: 0.9rem;
   color: var(--ice);
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
 }
 .btn.btn-sage { background: var(--sage); color: var(--dusk); }
 .btn.btn-sage:hover { background: #aecdb3; color: var(--dusk); }
 
-@media (max-width: 520px) {
-  .signup-fields { flex-direction: column; }
+@media (max-width: 540px) {
+  .signup-fields input { flex-basis: 100%; }
+  .signup-fields .btn { width: 100%; }
 }
