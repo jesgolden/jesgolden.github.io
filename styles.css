@@ -611,3 +611,54 @@ figure.portrait-frame figcaption {
   font-size: 1.2rem;
   max-width: var(--measure);
 }
+/* ---------- footer signup band ---------- */
+
+.footer-signup {
+  border-bottom: 1px solid rgba(225, 250, 249, 0.18);
+  padding-bottom: 1.9rem;
+  margin-bottom: 1.9rem;
+}
+.footer-signup-inner {
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.footer-signup h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: #fff;
+  max-width: 34ch;
+  margin: 0 auto 1.1rem;
+}
+.signup-fields {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+.signup-fields input {
+  flex: 1 1 0;
+  min-width: 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(225, 250, 249, 0.35);
+  background: #fff;
+  color: var(--ink);
+}
+.signup-fields input::placeholder { color: #6f7482; }
+.signup-fields input:focus-visible { outline: 2px solid var(--sage); outline-offset: 1px; }
+.signup-fields .btn { flex: 0 0 auto; }
+.signup-thanks {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ice);
+  margin-top: 0.4rem;
+}
+.btn.btn-sage { background: var(--sage); color: var(--dusk); }
+.btn.btn-sage:hover { background: #aecdb3; color: var(--dusk); }
+
+@media (max-width: 520px) {
+  .signup-fields { flex-direction: column; }
+}
