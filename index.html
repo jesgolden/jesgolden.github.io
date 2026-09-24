@@ -137,13 +137,15 @@
 </main>
 
 <footer class="footer">
-  <!-- Newsletter signup — submits invisibly to a hidden iframe so the page never navigates and
-       Mailchimp's confirmation page never appears. Two invisible honeypots guard against bots.
-       Pair with double opt-in in Mailchimp (Audience > Settings) for real protection.
+  <!-- Newsletter signup — sends the signup to Mailchimp in the background and shows
+       Mailchimp's real answer: a success message, or the actual error if something fails.
+       Two invisible honeypots guard against bots; double opt-in is ON in Mailchimp.
+       IMPORTANT: reCAPTCHA must be OFF in Mailchimp (Audience > Settings > Audience name
+       and defaults) or signups will be blocked.
        This whole <footer> block is identical on every page — paste it into each one. -->
   <div class="footer-top">
     <h2 class="footer-signup-title">Get updates on opportunities to practice &amp; reflections on the body &amp; ways of knowing</h2>
-    <form class="signup-form" id="newsletter-form" action="https://jesheppler.us21.list-manage.com/subscribe/post?u=e505378b7c51a355b4636ad74&amp;id=9735d9837b&amp;f_id=005ba4e6f0" method="post" target="mc-hidden-frame">
+    <form class="signup-form" id="newsletter-form" action="https://jesheppler.us21.list-manage.com/subscribe/post?u=e505378b7c51a355b4636ad74&amp;id=9735d9837b&amp;f_id=005ba4e6f0" method="post">
       <input type="text" name="FNAME" placeholder="First name" aria-label="First name" autocomplete="given-name">
       <input type="text" name="LNAME" placeholder="Last name" aria-label="Last name" autocomplete="family-name">
       <input type="email" name="EMAIL" placeholder="Email address" aria-label="Email address" autocomplete="email" required>
@@ -157,10 +159,8 @@
         <input type="text" name="contact_url" tabindex="-1" autocomplete="off" value="">
       </div>
     </form>
-    <!-- EDIT: this copy assumes double opt-in is ON in Mailchimp. If you keep single opt-in,
-         change the line below to: Thank you for signing up! -->
-    <p id="newsletter-thanks" class="signup-thanks" style="display:none;">Thank you—please check your inbox and click the confirmation link to finish subscribing.</p>
-    <iframe name="mc-hidden-frame" style="display:none;" title="hidden"></iframe>
+    <!-- Shows Mailchimp's real response: success or the actual error -->
+    <p id="newsletter-msg" class="signup-thanks" role="status" aria-live="polite" style="display:none;"></p>
   </div>
   <div class="footer-inner">
     <div class="wordmark">jes <span class="surname">golden</span></div>
@@ -177,15 +177,50 @@
     <p class="fine">© 2026 Jes Golden · Somerville, MA · <a href="https://www.instagram.com/jes.golden">Instagram</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
   </div>
   <script>
-    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-      var form = this;
-      var trap = form.querySelector('[name="contact_url"]');
-      if (trap && trap.value !== '') { e.preventDefault(); return; }
-      setTimeout(function() {
-        form.style.display = 'none';
-        document.getElementById('newsletter-thanks').style.display = 'block';
-      }, 400);
+  (function() {
+    var form = document.getElementById('newsletter-form');
+    var msg = document.getElementById('newsletter-msg');
+    var btn = form.querySelector('button[type="submit"]');
+
+    function show(text) { msg.textContent = text; msg.style.display = 'block'; }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (form.querySelector('[name="contact_url"]').value !== '') return;
+
+      var params = [];
+      form.querySelectorAll('input[name]').forEach(function(input) {
+        if (input.name === 'contact_url') return;
+        params.push(encodeURIComponent(input.name) + '=' + encodeURIComponent(input.value));
+      });
+
+      var cb = 'mcCallback' + Date.now();
+      var script = document.createElement('script');
+
+      window[cb] = function(data) {
+        delete window[cb];
+        script.remove();
+        btn.disabled = false;
+        if (data.result === 'success') {
+          form.style.display = 'none';
+          show('Thank you—please check your inbox and click the confirmation link to finish subscribing.');
+        } else {
+          var text = (data.msg || '').replace(/^\d+ - /, '').replace(/<[^>]*>/g, '');
+          if (/already subscribed/i.test(text)) text = "You're already on the list—thank you!";
+          show(text || 'Something went wrong. Please try again, or reach me through the contact page.');
+        }
+      };
+
+      script.onerror = function() {
+        btn.disabled = false;
+        show('Couldn’t reach the signup service. Please try again, or reach me through the contact page.');
+      };
+
+      btn.disabled = true;
+      script.src = form.action.replace('/post?', '/post-json?') + '&' + params.join('&') + '&c=' + cb;
+      document.body.appendChild(script);
     });
+  })();
   </script>
 </footer>
 
