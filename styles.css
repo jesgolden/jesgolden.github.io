@@ -673,7 +673,3 @@ figure.portrait-frame figcaption {
   .signup-form input { flex-basis: 100%; }
   .signup-form .btn { width: 100%; }
 }
-.margin-note {
-  font-family: 'Cardo', Georgia, serif;
-  font-style: italic;
-}
